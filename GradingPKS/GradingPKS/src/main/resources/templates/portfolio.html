@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio & Layanan Saya</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2d3436;
+            --secondary-color: #0984e3;
+            --accent-color: #00b894;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('./images/beach.jpg') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid var(--secondary-color);
+            margin-bottom: 2rem;
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(9, 132, 227, 0.3);
+        }
+
+        .about {
+            padding: 100px 0;
+            background-color: #f8f9fa;
+        }
+
+        .skills {
+            padding: 100px 0;
+        }
+
+        .products {
+            padding: 100px 0;
+            background-color: #f1f2f6;
+        }
+
+        .product-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .price-tag {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .contact {
+            padding: 100px 0;
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .nav-link {
+            color: white !important;
+            margin: 0 15px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-custom {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(9, 132, 227, 0.3);
+            background-color: #0873c5;
+        }
+
+        .card {
+            transition: transform 0.3s;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .form-control {
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 15px;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 0 3px rgba(9, 132, 227, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigasi -->
+    <nav class="navbar navbar-expand-lg fixed-top bg-dark">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#">Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Keahlian</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Produk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <img src="C:\Cursor File\GradingPKS\GradingPKS\src\main\resources\static\images\formal1.jpg" alt="Profile" class="profile-img">
+            <h1 class="display-3 fw-bold mb-4">Selamat Datang di Portfolio Saya</h1>
+            <p class="lead mb-4">Seorang pengembang web kreatif yang berdedikasi untuk menciptakan pengalaman digital yang luar biasa</p>
+            <a href="#contact" class="btn btn-custom">Hubungi Saya</a>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="mb-4">Tentang Saya</h2>
+                    <p class="lead">Saya adalah seorang pengembang web yang bersemangat dalam menciptakan solusi digital yang inovatif. Dengan pengalaman dalam berbagai teknologi web modern, saya siap membantu mewujudkan ide Anda menjadi kenyataan.</p>
+                    <p>Saya percaya bahwa desain yang baik bukan hanya tentang estetika, tetapi juga tentang fungsionalitas dan pengalaman pengguna yang optimal.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="C:\Cursor File\GradingPKS\GradingPKS\src\main\resources\static\images\formal1.jpg" alt="About Me" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="text-center mb-5">Keahlian Saya</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-code fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Web Development</h5>
+                            <p class="card-text">HTML5, CSS3, JavaScript, React, Node.js</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-paint-brush fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">UI/UX Design</h5>
+                            <p class="card-text">Figma, Adobe XD, Responsive Design</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-database fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Database</h5>
+                            <p class="card-text">MySQL, MongoDB, PostgreSQL</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="text-center mb-5">Produk & Layanan</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <span class="price-tag">Rp 2.500.000</span>
+                        <img src="./images/web-design.jpg" class="product-img" alt="Web Design">
+                        <div class="card-body">
+                            <h5 class="card-title">Website Design</h5>
+                            <p class="card-text">Desain website profesional dengan UI/UX yang modern dan responsif.</p>
+                            <a href="#contact" class="btn btn-custom w-100">Pesan Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <span class="price-tag">Rp 5.000.000</span>
+                        <img src="./images/web-app.jpg" class="product-img" alt="Web Application">
+                        <div class="card-body">
+                            <h5 class="card-title">Web Application</h5>
+                            <p class="card-text">Aplikasi web custom sesuai kebutuhan bisnis Anda.</p>
+                            <a href="#contact" class="btn btn-custom w-100">Pesan Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <span class="price-tag">Rp 1.000.000</span>
+                        <img src="./images/maintenance.jpg" class="product-img" alt="Maintenance">
+                        <div class="card-body">
+                            <h5 class="card-title">Maintenance Website</h5>
+                            <p class="card-text">Layanan pemeliharaan dan update website bulanan.</p>
+                            <a href="#contact" class="btn btn-custom w-100">Pesan Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="text-center mb-5">Hubungi Saya</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Nama Anda" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Email Anda" required>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-control" required>
+                                <option value="">Pilih Layanan</option>
+                                <option value="web-design">Website Design</option>
+                                <option value="web-app">Web Application</option>
+                                <option value="maintenance">Maintenance Website</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Pesan Anda" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-custom w-100">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

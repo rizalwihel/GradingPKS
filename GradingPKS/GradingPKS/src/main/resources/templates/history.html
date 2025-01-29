@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>History Grading</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .timestamp {
+            font-size: 0.9em;
+            color: #666;
+        }
+        .status-success {
+            color: green;
+        }
+        .status-failed {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>History Grading</h1>
+    
+    <div th:if="${histories != null and !histories.empty}">
+        <table>
+            <thead>
+                <tr>
+                    <th>Waktu</th>
+                    <th>Nama</th>
+                    <th>NIM</th>
+                    <th>Nilai</th>
+                    <th>Status</th>
+                    <th>Keterangan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="history : ${histories}">
+                    <td class="timestamp" th:text="${#temporals.format(history.timestamp, 'dd-MM-yyyy HH:mm:ss')}"></td>
+                    <td th:text="${history.nama}"></td>
+                    <td th:text="${history.nim}"></td>
+                    <td th:text="${history.nilai}"></td>
+                    <td th:class="${history.status == 'LULUS'} ? 'status-success' : 'status-failed'"
+                        th:text="${history.status}"></td>
+                    <td th:text="${history.keterangan}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div th:if="${histories == null or histories.empty}">
+        <p>Tidak ada data history</p>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <a href="/grading" class="button">Kembali ke Halaman Utama</a>
+    </div>
+</body>
+</html> 
